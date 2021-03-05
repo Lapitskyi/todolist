@@ -15,7 +15,7 @@ const TaskForm = (props) => {
                            value={props.newTaskText}/>
                 </label>
                 <button className="form__btn btn"
-                        type="button"
+                        type="submit"
                         onClick={props.onAddNewTask}>add
                 </button>
             </form>

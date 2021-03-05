@@ -10,6 +10,12 @@
     justify-content: space-between;
   }
 
+
+
+  &__listDone{
+    background-color: #999;
+  }
+
   &__listItem +&__listItem {
     margin-top: 15px;
   }

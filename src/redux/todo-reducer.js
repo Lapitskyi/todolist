@@ -6,12 +6,7 @@ const CHECKBOX_ON_CHANGE = 'CHECKBOX_ON_CHANGE'
 
 
 let initialState = {
-    tasks: [
-        {id: 1, text: "Первая задача", done: false},
-        {id: 2, text: "Вторая задача", done: true},
-        {id: 3, text: "Третья задача", done: false},
-        {id: 4, text: "Четвертая задача", done: false},
-    ],
+    tasks: [],
     newTaskText: ''
 };
 
@@ -25,10 +20,11 @@ const todoReducer = (state = initialState, action) => {
             };
 
         case ADD_NEW_TASK:
-            let textTask = state.newTaskText
+            let textTask = state.newTaskText;
+            let idTask = Math.random();
             return {
                 ...state,
-                tasks: [...state.tasks, {id: 5, text: textTask, done: false}],
+                tasks: [...state.tasks, {id: idTask, text: textTask, done: false}],
                 newTaskText: ''
             }
 
