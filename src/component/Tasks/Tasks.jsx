@@ -19,6 +19,7 @@ const Tasks = (props) => {
             <TaskList tasks={props.tasks}
                       onEditTaskItem={props.onEditTaskItem}
                       onDelTaskItem={props.onDelTaskItem}
+                      onCheckBoxOnChange={props.onCheckBoxOnChange}
             />
 
         </div>

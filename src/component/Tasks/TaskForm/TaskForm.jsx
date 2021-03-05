@@ -5,13 +5,12 @@ import './TaskForm.scss'
 
 
 const TaskForm = (props) => {
-
     return (
             <form className="form">
                 <label className="form__label">
                     <input className="form__input"
                            type="text"
-                           placeholder="добавить задание"
+                           placeholder="добавить задачу"
                            onChange={props.onTextChange}
                            value={props.newTaskText}/>
                 </label>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {addNewTask, editTaskItem, delTaskItem, taskTextCreate} from "../../redux/todo-reducer";
+import {addNewTask, editTaskItem, delTaskItem, taskTextCreate, checkBoxOnChange} from "../../redux/todo-reducer";
 import Tasks from "./Tasks";
 
 
@@ -17,11 +17,16 @@ const TasksContainer = (props) => {
         props.taskTextCreate(text);
     }
 
-    const onEditTaskItem = () => {
+    const onEditTaskItem = (id) => {
+        console.log(id)
     }
 
     const onDelTaskItem = (id) => {
         props.delTaskItem(id);
+    }
+
+    const onCheckBoxOnChange =(id)=>{
+        props.checkBoxOnChange(id);
     }
 
 
@@ -29,6 +34,7 @@ const TasksContainer = (props) => {
                   onAddNewTask={onAddNewTask}
                   onEditTaskItem={onEditTaskItem}
                   onDelTaskItem={onDelTaskItem}
+                  onCheckBoxOnChange ={onCheckBoxOnChange }
                   newTaskText={props.newTaskText}
                   tasks={props.tasks}
 
@@ -47,5 +53,6 @@ export default connect(mapStateToProps, {
     taskTextCreate,
     addNewTask,
     editTaskItem,
-    delTaskItem
+    delTaskItem,
+    checkBoxOnChange
 })(TasksContainer);

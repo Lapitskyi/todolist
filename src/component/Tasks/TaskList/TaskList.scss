@@ -10,39 +10,52 @@
     justify-content: space-between;
   }
 
+  &__listItem +&__listItem {
+    margin-top: 15px;
+  }
   &__listLabel {
     display: flex;
     align-items: center;
 
   }
 
-  &__listCheckbox { margin-right: 10px;
+  &__listCheckbox {
+    margin-right: 10px;
   }
+
 
   &__listText {
+    font-size: 16px;
   }
 
-  &__btn{
+  &__listCheckbox:checked + &__listText {
+    text-decoration: line-through;
+
+  }
+
+  &__btn {
     width: 25px;
     height: 25px;
-    background-color: #eaebed ;
+    background-color: #eaebed;
     border-radius: 50%;
     position: relative;
   }
 
-  &__btn-icon{
+  &__btn-icon {
     width: 12px;
     height: 12px;
     fill: #282c34;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 
   }
-  &__btn+&__btn{
+
+  &__btn + &__btn {
     margin-left: 15px;
-    .tasks__btn-icon{
+
+    .tasks__btn-icon {
       fill: #b3281a;
     }
   }
