@@ -1,7 +1,7 @@
 import React from 'react'
+import PropTypes from "prop-types";
 
-import './TaskForm.scss'
-
+import './TaskForm.scss';
 
 
 const TaskForm = (props) => {
@@ -22,5 +22,12 @@ const TaskForm = (props) => {
     )
 }
 
+
+
+TaskForm.propTypes = {
+    newTaskText: PropTypes.string,
+    onTextChange: PropTypes.func,
+    onAddNewTask: PropTypes.func
+}
 
 export default TaskForm;

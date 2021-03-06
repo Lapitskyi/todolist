@@ -2,7 +2,7 @@ const ADD_TASK_TEXT = 'ADD_TASK_TEXT';
 const ADD_NEW_TASK = 'ADD_NEW_TASK'
 const EDIT_TASK_ITEM = 'EDIT_TASK_ITEM';
 const DEL_TASK_ITEM = 'DEL_TASK_ITEM';
-const CHECKBOX_ON_CHANGE = 'CHECKBOX_ON_CHANGE'
+const CHECKBOX_ON_CHANGE = 'CHECKBOX_ON_CHANGE';
 
 
 let initialState = {
@@ -20,16 +20,14 @@ const todoReducer = (state = initialState, action) => {
             };
 
         case ADD_NEW_TASK:
-            let textTask = state.newTaskText;
-            let idTask = Math.random();
+
             return {
                 ...state,
-                tasks: [...state.tasks, {id: idTask, text: textTask, done: false}],
+                tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false}],
                 newTaskText: ''
             }
 
         case  EDIT_TASK_ITEM:
-
             return {
                 ...state,
                 tasks: state.tasks.map(task => {

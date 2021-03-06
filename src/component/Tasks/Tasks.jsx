@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from "prop-types";
 
-import './Tasks.scss'
 import TaskList from "./TaskList/TaskList";
 import TaskForm from "./TaskForm/TaskForm";
+import './Tasks.scss'
 
 
 const Tasks = (props) => {
@@ -26,5 +27,14 @@ const Tasks = (props) => {
     )
 }
 
+Tasks.propTypes = {
+    tasks: PropTypes.array,
+    newTaskText: PropTypes.string,
+    onTextChange: PropTypes.func,
+    onAddNewTask: PropTypes.func,
+    onEditTaskItem: PropTypes.func,
+    onDelTaskItem: PropTypes.func,
+    onCheckBoxOnChange: PropTypes.func
+}
 
 export default Tasks;

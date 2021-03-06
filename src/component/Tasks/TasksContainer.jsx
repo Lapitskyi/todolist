@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import PropTypes from "prop-types";
 
 import {addNewTask, editTaskItem, delTaskItem, taskTextCreate, checkBoxOnChange} from "../../redux/todo-reducer";
 import Tasks from "./Tasks";
@@ -25,7 +26,7 @@ const TasksContainer = (props) => {
         props.delTaskItem(id);
     }
 
-    const onCheckBoxOnChange =(id)=>{
+    const onCheckBoxOnChange = (id) => {
         props.checkBoxOnChange(id);
     }
 
@@ -34,7 +35,7 @@ const TasksContainer = (props) => {
                   onAddNewTask={onAddNewTask}
                   onEditTaskItem={onEditTaskItem}
                   onDelTaskItem={onDelTaskItem}
-                  onCheckBoxOnChange ={onCheckBoxOnChange }
+                  onCheckBoxOnChange={onCheckBoxOnChange}
                   newTaskText={props.newTaskText}
                   tasks={props.tasks}
 
@@ -56,3 +57,21 @@ export default connect(mapStateToProps, {
     delTaskItem,
     checkBoxOnChange
 })(TasksContainer);
+
+
+TasksContainer.propTypes = {
+    tasks: PropTypes.array,
+    newTaskText: PropTypes.string,
+    onTextChange: PropTypes.func,
+    onAddNewTask: PropTypes.func,
+    onEditTaskItem: PropTypes.func,
+    onDelTaskItem: PropTypes.func,
+    onCheckBoxOnChange: PropTypes.func,
+
+    taskTextCreate: PropTypes.func,
+    addNewTask: PropTypes.func,
+    editTaskItem: PropTypes.func,
+    delTaskItem: PropTypes.func,
+    checkBoxOnChange: PropTypes.func,
+
+}
