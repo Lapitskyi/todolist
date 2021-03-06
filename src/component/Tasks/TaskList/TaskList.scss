@@ -4,42 +4,50 @@
     flex-direction: column;
   }
 
-  &__listItem {
+  &__list-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    //justify-content: space-between;
   }
 
 
-
-  &__listDone{
-    background-color: #999;
-  }
-
-  &__listItem +&__listItem {
+  &__list-item + &__list-item {
     margin-top: 15px;
   }
-  &__listLabel {
+
+  &__list-label {
     display: flex;
     align-items: center;
 
   }
 
-  &__listCheckbox {
+  &__list-checkbox {
     margin-right: 10px;
   }
 
-
-  &__listText {
-    font-size: 16px;
+  &__list-input {
+    color: #b3281a;
+    padding: 0 10px;
+    border: 1px solid #b3281a;
+    width: 360px;
   }
 
-  &__listCheckbox:checked + &__listText {
+  &__list-text {
+
+  }
+
+  &__list-checkbox:checked + &__list-text {
     text-decoration: line-through;
 
   }
 
+  &__btn-box {
+
+    margin-left: auto;
+  }
+
   &__btn {
+
     width: 25px;
     height: 25px;
     background-color: #eaebed;
@@ -56,6 +64,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
+  }
+
+  &__btn-update {
+    fill: #006400;
   }
 
   &__btn + &__btn {

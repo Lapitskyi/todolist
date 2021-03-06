@@ -6,6 +6,7 @@ import TaskForm from "./TaskForm/TaskForm";
 import './Tasks.scss'
 
 
+
 const Tasks = (props) => {
 
     return (
@@ -18,9 +19,12 @@ const Tasks = (props) => {
             />
 
             <TaskList tasks={props.tasks}
-                      onEditTaskItem={props.onEditTaskItem}
+
+                      onUpdateTaskText={props.onUpdateTaskText}
+                      onEditModeTask={props.onEditModeTask}
                       onDelTaskItem={props.onDelTaskItem}
                       onCheckBoxOnChange={props.onCheckBoxOnChange}
+
             />
 
         </div>
@@ -30,11 +34,12 @@ const Tasks = (props) => {
 Tasks.propTypes = {
     tasks: PropTypes.array,
     newTaskText: PropTypes.string,
-    onTextChange: PropTypes.func,
+
     onAddNewTask: PropTypes.func,
-    onEditTaskItem: PropTypes.func,
+    onTextChange: PropTypes.func,
+    onUpdateTaskText: PropTypes.func,
+    onEditModeTask: PropTypes.func,
     onDelTaskItem: PropTypes.func,
-    onCheckBoxOnChange: PropTypes.func
-}
+    onCheckBoxOnChange: PropTypes.func}
 
 export default Tasks;

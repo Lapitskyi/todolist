@@ -12,6 +12,7 @@ const TaskForm = (props) => {
                            type="text"
                            placeholder="добавить задачу"
                            onChange={props.onTextChange}
+                           maxLength={60}
                            value={props.newTaskText}/>
                 </label>
                 <button className="form__btn btn"

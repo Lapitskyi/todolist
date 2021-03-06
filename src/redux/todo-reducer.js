@@ -1,6 +1,7 @@
 const ADD_TASK_TEXT = 'ADD_TASK_TEXT';
 const ADD_NEW_TASK = 'ADD_NEW_TASK'
-const EDIT_TASK_ITEM = 'EDIT_TASK_ITEM';
+const UPDATE_TASK_TEXT = 'UPDATE_TASK_TEXT';
+const EDIT_MODE_TASK = 'EDIT_MODE_TASK';
 const DEL_TASK_ITEM = 'DEL_TASK_ITEM';
 const CHECKBOX_ON_CHANGE = 'CHECKBOX_ON_CHANGE';
 
@@ -13,6 +14,7 @@ let initialState = {
 
 const todoReducer = (state = initialState, action) => {
     switch (action.type) {
+
         case ADD_TASK_TEXT:
             return {
                 ...state,
@@ -20,19 +22,33 @@ const todoReducer = (state = initialState, action) => {
             };
 
         case ADD_NEW_TASK:
-
             return {
                 ...state,
-                tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false}],
+                tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false,editMode:false}],
                 newTaskText: ''
             }
 
-        case  EDIT_TASK_ITEM:
+        case EDIT_MODE_TASK:
             return {
                 ...state,
                 tasks: state.tasks.map(task => {
                     if (task.id === action.id) {
-                        return {...task, text: state.newTaskText}
+                        if (task.editMode === true) {
+                            return {...task, editMode: false}
+                        } else if (task.editMode === false) {
+                            return {...task, editMode: true}
+                        }
+                    }
+                    return task
+                })
+            }
+
+        case  UPDATE_TASK_TEXT:
+            return {
+                ...state,
+                tasks: state.tasks.map(task => {
+                    if (task.id === action.id) {
+                        return {...task, text: action.taskText}
                     }
                     return task
                 })
@@ -59,7 +75,6 @@ const todoReducer = (state = initialState, action) => {
                 })
             }
 
-
         default:
             return state;
 
@@ -73,7 +88,7 @@ export const delTaskItem = (id) => ({type: DEL_TASK_ITEM, id});
 export const checkBoxOnChange = (id) => ({type: CHECKBOX_ON_CHANGE, id});
 
 
-export const editTaskItem = (id) => ({type: EDIT_TASK_ITEM, id});
-
+export const updateTaskText = (taskText,id) => ({type: UPDATE_TASK_TEXT , taskText,id });
+export const editModeTask = (id) =>({type:EDIT_MODE_TASK,id})
 
 export default todoReducer;
