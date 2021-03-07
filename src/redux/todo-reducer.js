@@ -4,11 +4,14 @@ const UPDATE_TASK_TEXT = 'UPDATE_TASK_TEXT';
 const EDIT_MODE_TASK = 'EDIT_MODE_TASK';
 const DEL_TASK_ITEM = 'DEL_TASK_ITEM';
 const CHECKBOX_ON_CHANGE = 'CHECKBOX_ON_CHANGE';
+const SEARCH_TASK = 'SEARCH_TASK';
 
 
 let initialState = {
     tasks: [],
-    newTaskText: ''
+    newTaskText: '',
+    searchText: ''
+
 };
 
 
@@ -24,7 +27,7 @@ const todoReducer = (state = initialState, action) => {
         case ADD_NEW_TASK:
             return {
                 ...state,
-                tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false,editMode:false}],
+                tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false, editMode: false}],
                 newTaskText: ''
             }
 
@@ -60,6 +63,20 @@ const todoReducer = (state = initialState, action) => {
                 tasks: [...state.tasks.filter(task => task.id !== action.id)]
             };
 
+        case SEARCH_TASK:
+            return {
+                ...state,
+                searchText: action.text,
+                tasks:[...state.tasks.filter((task) => {
+                    if (state.searchText=='') {
+                        return task
+                    } else if (task.text.toLowerCase().includes(state.searchText.toLowerCase())) {
+                        return task
+                    }
+                })]
+            }
+
+
         case CHECKBOX_ON_CHANGE:
             return {
                 ...state,
@@ -87,8 +104,9 @@ export const addNewTask = () => ({type: ADD_NEW_TASK});
 export const delTaskItem = (id) => ({type: DEL_TASK_ITEM, id});
 export const checkBoxOnChange = (id) => ({type: CHECKBOX_ON_CHANGE, id});
 
+export const searchTask = (text) => ({type: SEARCH_TASK, text});
 
-export const updateTaskText = (taskText,id) => ({type: UPDATE_TASK_TEXT , taskText,id });
-export const editModeTask = (id) =>({type:EDIT_MODE_TASK,id})
+export const updateTaskText = (taskText, id) => ({type: UPDATE_TASK_TEXT, taskText, id});
+export const editModeTask = (id) => ({type: EDIT_MODE_TASK, id})
 
 export default todoReducer;

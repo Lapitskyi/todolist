@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import TaskList from "./TaskList/TaskList";
 import TaskForm from "./TaskForm/TaskForm";
 import './Tasks.scss'
+import TaskSearch from "./TaskSearch/TaskSearch";
 
 
 
@@ -11,6 +12,10 @@ const Tasks = (props) => {
 
     return (
         <div className="task__inner">
+            <TaskSearch searchText={props.searchText}
+                        onSearchTask={ props.onSearchTask}
+            />
+
             <h2 className="task__title">Список задач</h2>
 
             <TaskForm newTaskText={props.newTaskText}
@@ -34,12 +39,15 @@ const Tasks = (props) => {
 Tasks.propTypes = {
     tasks: PropTypes.array,
     newTaskText: PropTypes.string,
+    searchText:PropTypes.string,
 
     onAddNewTask: PropTypes.func,
     onTextChange: PropTypes.func,
     onUpdateTaskText: PropTypes.func,
     onEditModeTask: PropTypes.func,
     onDelTaskItem: PropTypes.func,
-    onCheckBoxOnChange: PropTypes.func}
+    onCheckBoxOnChange: PropTypes.func,
+    onSearchTask:PropTypes.func
+}
 
 export default Tasks;

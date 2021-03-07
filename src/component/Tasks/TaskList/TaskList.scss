@@ -7,7 +7,7 @@
   &__list-item {
     display: flex;
     align-items: center;
-    //justify-content: space-between;
+    height: auto;
   }
 
 
@@ -18,7 +18,7 @@
   &__list-label {
     display: flex;
     align-items: center;
-
+    width: 75%;
   }
 
   &__list-checkbox {
@@ -27,27 +27,29 @@
 
   &__list-input {
     color: #b3281a;
-    padding: 0 10px;
+    padding: 5px;
+    border-radius: 5px;
     border: 1px solid #b3281a;
-    width: 360px;
+    resize: vertical;
+    width: 100%;
+    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5),
+    2px 2px 5px rgba(154, 147, 140, 0.5);
   }
 
   &__list-text {
-
+    word-break: break-all;
+    max-width: 365px;
   }
 
   &__list-checkbox:checked + &__list-text {
     text-decoration: line-through;
-
   }
 
   &__btn-box {
-
     margin-left: auto;
   }
 
   &__btn {
-
     width: 25px;
     height: 25px;
     background-color: #eaebed;

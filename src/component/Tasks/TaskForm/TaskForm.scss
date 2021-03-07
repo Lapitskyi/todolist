@@ -4,7 +4,6 @@
   justify-content: space-around;
   margin-bottom: 20px;
 
-
   &__label {
     width: 80%;
   }
@@ -15,6 +14,8 @@
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #eaebed;
+    box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5),
+    2px 2px 5px rgba(154, 147, 140, 0.5);
 
     &:focus {
       outline: none;
@@ -35,5 +36,15 @@
       color: #b3281a;
     }
 
+  }
+
+}
+
+@media(max-width: 992px) {
+  .form__btn {
+    &:hover {
+      background-color: #777777;
+      color: #ffffff;
+    }
   }
 }

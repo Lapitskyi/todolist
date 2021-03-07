@@ -8,17 +8,14 @@ import './TaskList.scss';
 
 const TaskList = (props) => {
 
-
     const activeTask = props.tasks.filter(task => !task.done);
     const doneTask = props.tasks.filter(task => task.done);
-
 
     return (
         <ul className="tasks__list">
             {props.tasks.length === 0 &&
             <h4> Список задач пуст </h4>
             }
-
 
             {props.tasks.length !== 0 &&
             [...activeTask, ...doneTask].map((task) =>
@@ -32,12 +29,10 @@ const TaskList = (props) => {
                                }}
                         />
 
-
-                        {task.editMode && <input className="tasks__list-input"
+                        {task.editMode && <textarea className="tasks__list-input"
                                                  type="text"
                                                  value={task.text}
                                                  autoFocus={true}
-                                                 maxLength={60}
                                                  onChange={(e) => {
                                                      props.onUpdateTaskText(e, task.id)
                                                  }}

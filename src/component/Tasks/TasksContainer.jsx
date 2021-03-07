@@ -7,7 +7,7 @@ import {
     delTaskItem,
     taskTextCreate,
     checkBoxOnChange,
-    updateTaskText, editModeTask
+    updateTaskText, editModeTask, searchTask
 } from "../../redux/todo-reducer";
 
 import Tasks from "./Tasks";
@@ -25,9 +25,10 @@ const TasksContainer = (props) => {
         props.taskTextCreate(text)
     }
 
-    const onUpdateTaskText = (e,id) => {
+    const onUpdateTaskText = (e, id) => {
         let taskText = e.target.value;
-        props.updateTaskText(taskText,id)
+        props.updateTaskText(taskText, id);
+
     }
 
     const onEditModeTask = (id) => {
@@ -43,6 +44,10 @@ const TasksContainer = (props) => {
         props.checkBoxOnChange(id);
     }
 
+    const onSearchTask = (e) =>{
+        props.searchTask(e.target.value);
+    }
+
 
     return <Tasks onAddNewTask={onAddNewTask}
                   onTextChange={onTextChange}
@@ -50,11 +55,11 @@ const TasksContainer = (props) => {
                   onEditModeTask={onEditModeTask}
                   onDelTaskItem={onDelTaskItem}
                   onCheckBoxOnChange={onCheckBoxOnChange}
+                  onSearchTask={ onSearchTask}
 
                   newTaskText={props.newTaskText}
+                  searchText = {props.searchText}
                   tasks={props.tasks}
-
-
     />
 }
 
@@ -62,7 +67,8 @@ const TasksContainer = (props) => {
 let mapStateToProps = (state) => {
     return {
         newTaskText: state.todoList.newTaskText,
-        tasks: state.todoList.tasks
+        tasks: state.todoList.tasks,
+        searchText:state.todoList.searchText
     }
 }
 
@@ -72,13 +78,15 @@ export default connect(mapStateToProps, {
     updateTaskText,
     editModeTask,
     delTaskItem,
-    checkBoxOnChange
+    checkBoxOnChange,
+    searchTask
 })(TasksContainer);
 
 
 TasksContainer.propTypes = {
     tasks: PropTypes.array,
     newTaskText: PropTypes.string,
+    searchText:PropTypes.string,
 
     onAddNewTask: PropTypes.func,
     onTextChange: PropTypes.func,
@@ -86,11 +94,13 @@ TasksContainer.propTypes = {
     onEditModeTask: PropTypes.func,
     onDelTaskItem: PropTypes.func,
     onCheckBoxOnChange: PropTypes.func,
+    onSearchTask:PropTypes.func,
 
     taskTextCreate: PropTypes.func,
     addNewTask: PropTypes.func,
     updateTaskText: PropTypes.func,
     editModeTask: PropTypes.func,
     delTaskItem: PropTypes.func,
-    checkBoxOnChange: PropTypes.func
+    checkBoxOnChange: PropTypes.func,
+    searchTask:PropTypes.func
 }
