@@ -28,7 +28,7 @@ const todoReducer = (state = initialState, action) => {
             return {
                 ...state,
                 tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false, editMode: false}],
-                newTaskText: ''
+                newTaskText:''
             }
 
         case EDIT_MODE_TASK:
@@ -68,9 +68,9 @@ const todoReducer = (state = initialState, action) => {
                 ...state,
                 searchText: action.text,
                 tasks:[...state.tasks.filter((task) => {
-                    if (state.searchText=='') {
+                    if (action.text=='') {
                         return task
-                    } else if (task.text.toLowerCase().includes(state.searchText.toLowerCase())) {
+                    } else if (task.text.toLowerCase().includes(action.text.toLowerCase())) {
                         return task
                     }
                 })]

@@ -16,7 +16,7 @@ const Tasks = (props) => {
                         onSearchTask={ props.onSearchTask}
             />
 
-            <h2 className="task__title">Список задач</h2>
+            <h2 className="task__title">Task List</h2>
 
             <TaskForm newTaskText={props.newTaskText}
                       onAddNewTask={props.onAddNewTask}

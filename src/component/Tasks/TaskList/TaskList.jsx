@@ -14,7 +14,7 @@ const TaskList = (props) => {
     return (
         <ul className="tasks__list">
             {props.tasks.length === 0 &&
-            <h4> Список задач пуст </h4>
+            <h4> The task list is empty </h4>
             }
 
             {props.tasks.length !== 0 &&

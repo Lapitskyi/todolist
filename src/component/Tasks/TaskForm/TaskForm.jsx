@@ -10,7 +10,7 @@ const TaskForm = (props) => {
             <label className="form__label">
                 <input className="form__input"
                        type="text"
-                       placeholder="добавить задачу"
+                       placeholder="add tasks"
                        onChange={props.onTextChange}
                        value={props.newTaskText}/>
             </label>
