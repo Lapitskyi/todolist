@@ -25,11 +25,14 @@ const todoReducer = (state = initialState, action) => {
             };
 
         case ADD_NEW_TASK:
-            return {
-                ...state,
-                tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false, editMode: false}],
-                newTaskText:''
+            if (state.newTaskText) {
+                return {
+                    ...state,
+                    tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false, editMode: false}],
+                    newTaskText: ''
+                }
             }
+            return {...state}
 
         case EDIT_MODE_TASK:
             return {
@@ -67,13 +70,14 @@ const todoReducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchText: action.text,
-                tasks:[...state.tasks.filter((task) => {
-                    if (action.text=='') {
-                        return task
-                    } else if (task.text.toLowerCase().includes(action.text.toLowerCase())) {
-                        return task
+                tasks: [...state.tasks.filter((task) => {
+                    if (task.text.toLowerCase().search(action.text.toLowerCase()) !== -1) {
+                        return {...task.text}
+                    } else if (action.searchText == '') {
+                        return task.text
                     }
                 })]
+
             }
 
 
