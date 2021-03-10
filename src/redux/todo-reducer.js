@@ -66,18 +66,9 @@ const todoReducer = (state = initialState, action) => {
             };
 
         case SEARCH_TASK:
-
             return {
                 ...state,
-                searchText: action.text,
-                tasks: [...state.tasks.filter((task) => {
-                    if (task.text.toLowerCase().search(action.text.toLowerCase()) !== -1) {
-                        return {...task.text}
-                    } else if (action.text == '') {
-                        return task
-                    }
-                })]
-
+                searchText: action.text
             }
 
 

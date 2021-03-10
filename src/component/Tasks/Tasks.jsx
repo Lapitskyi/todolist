@@ -24,7 +24,7 @@ const Tasks = (props) => {
             />
 
             <TaskList tasks={props.tasks}
-
+                      searchText={props.searchText}
                       onUpdateTaskText={props.onUpdateTaskText}
                       onEditModeTask={props.onEditModeTask}
                       onDelTaskItem={props.onDelTaskItem}

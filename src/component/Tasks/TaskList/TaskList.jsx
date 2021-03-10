@@ -11,6 +11,14 @@ const TaskList = (props) => {
     const activeTask = props.tasks.filter(task => !task.done);
     const doneTask = props.tasks.filter(task => task.done);
 
+    const find = [...activeTask, ...doneTask].filter((task)=>{
+        if (task.text.toLowerCase().search(props.searchText.toLowerCase()) !== -1) {
+            return {...task.text}
+        } else if (props.searchText == '') {
+            return task
+        }
+    })
+
     return (
         <ul className="tasks__list">
             {props.tasks.length === 0 &&
@@ -18,7 +26,7 @@ const TaskList = (props) => {
             }
 
             {props.tasks.length !== 0 &&
-            [...activeTask, ...doneTask].map((task) =>
+            find.map((task) =>
                 <li className="tasks__list-item" key={task.id}>
                     <label className="tasks__list-label">
                         <input className="tasks__list-checkbox"
@@ -84,6 +92,7 @@ const TaskList = (props) => {
 TaskList.propTypes = {
     tasks: PropTypes.array,
     maxlength:PropTypes.number,
+    searchText:PropTypes.string,
 
     onUpdateTaskText: PropTypes.func,
     onEditModeTask: PropTypes.func,
