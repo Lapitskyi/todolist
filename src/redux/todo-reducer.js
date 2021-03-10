@@ -11,7 +11,6 @@ let initialState = {
     tasks: [],
     newTaskText: '',
     searchText: ''
-
 };
 
 
@@ -32,7 +31,7 @@ const todoReducer = (state = initialState, action) => {
                     newTaskText: ''
                 }
             }
-            return {...state}
+            return state
 
         case EDIT_MODE_TASK:
             return {
@@ -67,14 +66,15 @@ const todoReducer = (state = initialState, action) => {
             };
 
         case SEARCH_TASK:
+
             return {
                 ...state,
                 searchText: action.text,
                 tasks: [...state.tasks.filter((task) => {
                     if (task.text.toLowerCase().search(action.text.toLowerCase()) !== -1) {
                         return {...task.text}
-                    } else if (action.searchText == '') {
-                        return task.text
+                    } else if (action.text == '') {
+                        return task
                     }
                 })]
 
