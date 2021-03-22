@@ -27,7 +27,7 @@ const todoReducer = (state = initialState, action) => {
             if (state.newTaskText) {
                 return {
                     ...state,
-                    tasks: [...state.tasks, {id: Math.random(), text: state.newTaskText, done: false, editMode: false}],
+                    tasks: [...state.tasks, {id: Date.now(), text: state.newTaskText, done: false, editMode: false}],
                     newTaskText: ''
                 }
             }
@@ -38,12 +38,9 @@ const todoReducer = (state = initialState, action) => {
                 ...state,
                 tasks: state.tasks.map(task => {
                     if (task.id === action.id) {
-                        if (task.editMode === true) {
-                            return {...task, editMode: false}
-                        } else if (task.editMode === false) {
-                            return {...task, editMode: true}
-                        }
+                       return {...task, editMode:!!task.editMode===false}
                     }
+
                     return task
                 })
             }
@@ -77,11 +74,7 @@ const todoReducer = (state = initialState, action) => {
                 ...state,
                 tasks: state.tasks.map(task => {
                     if (task.id === action.id) {
-                        if (task.done === true) {
-                            return {...task, done: false}
-                        } else if (task.done === false) {
-                            return {...task, done: true}
-                        }
+                         return {...task, done: !!task.done===false}
                     }
                     return task
                 })
