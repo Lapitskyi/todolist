@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route} from "react-router-dom"
+
 import TasksContainer from "./component/Tasks/TasksContainer";
 
 import './App.scss';
@@ -7,7 +7,7 @@ import './App.scss';
 const App = () => {
     return (
         <div className="container">
-            <Route path="/" render={() => <TasksContainer/>}/>
+            <TasksContainer/>
         </div>
     )
 }
