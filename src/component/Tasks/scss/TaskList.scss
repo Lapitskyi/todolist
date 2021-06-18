@@ -41,8 +41,10 @@
     max-width: 365px;
   }
 
-  &__list-checkbox:checked + &__list-text {
-    text-decoration: line-through;
+  &__list-checkbox:checked + &__list-label {
+    .tasks__list-text {
+      text-decoration: line-through;
+    }
   }
 
   &__btn-box {
