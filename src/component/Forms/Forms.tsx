@@ -1,11 +1,11 @@
 import React, {FC} from 'react';
 
-import '../scss/TaskForm.scss';
-import useInput from '../../../useHook/useInput';
+import './scss/Forms.scss';
+import useInput from '../../useHook/useInput';
 interface TaskFormProps {
     onAddNewTask: (e:any, val: string ) => void
 }
-const TaskForm:FC<TaskFormProps> = ({ onAddNewTask }) => {
+const Forms:FC<TaskFormProps> = ({ onAddNewTask }) => {
   const { val, onChange } = useInput('');
 
   return (
@@ -31,4 +31,4 @@ const TaskForm:FC<TaskFormProps> = ({ onAddNewTask }) => {
   );
 };
 
-export default TaskForm;
+export default Forms;

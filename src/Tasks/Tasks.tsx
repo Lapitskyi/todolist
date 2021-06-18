@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 
 import TaskList from './components/TaskList';
-import TaskForm from './components/TaskForm';
-import TaskSearch from './components/TaskSearch';
+import Forms from '../component/Forms/Forms';
+import Search from '../component/Search/Search';
 
 import './scss/Tasks.scss';
 interface TasksProps {
@@ -29,11 +29,11 @@ const Tasks: FC<TasksProps> = ({
 }) => (
   <div className="task__inner">
 
-    <TaskSearch searchText={searchText}/>
+    <Search searchText={searchText}/>
 
     <h2 className="task__title">Task List</h2>
 
-    <TaskForm
+    <Forms
       onAddNewTask={onAddNewTask}
     />
 

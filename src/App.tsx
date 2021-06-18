@@ -1,5 +1,5 @@
 import React from 'react';
-import TasksContainer from './component/Tasks/TasksContainer';
+import TasksContainer from './Tasks/TasksContainer';
 
 import './App.scss';
 

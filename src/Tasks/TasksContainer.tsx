@@ -5,11 +5,11 @@ import {
   delTaskItem,
   checkBoxOnChange,
   updateTaskText, editModeTask
-} from '../../redux/action';
+} from '../redux/action';
 
 import Tasks from './Tasks';
-import getTodoList from '../../redux/selector';
-import useInput from "../../useHook/useInput";
+import getTodoList from '../redux/selector';
+import useInput from "../useHook/useInput";
 
 const TasksContainer: FC = () => {
 

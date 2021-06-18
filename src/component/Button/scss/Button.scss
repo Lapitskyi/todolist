@@ -1,0 +1,33 @@
+.button {
+  &__btn {
+    width: 25px;
+    height: 25px;
+    background-color: #eaebed;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  &__btn-icon {
+    width: 12px;
+    height: 12px;
+    fill: #282c34;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+
+  &__btn-update {
+    fill: #006400;
+  }
+
+  &__btn + &__btn {
+    margin-left: 15px;
+
+    .tasks__btn-icon {
+      fill: #b3281a;
+    }
+  }
+
+}
