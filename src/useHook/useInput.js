@@ -9,7 +9,7 @@ const useInput = (initialVal) => {
 
   return {
     val,
-    onChange
+    onChange,
   };
 };
 export default useInput;

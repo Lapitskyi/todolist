@@ -1,23 +1,25 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 import TaskList from './components/TaskList';
 import Forms from '../component/Forms/Forms';
 import Search from '../component/Search/Search';
 
 import './scss/Tasks.scss';
+
 interface TasksProps {
-    searchTask: any[],
-    searchText: {
-        val:string,
-        onChange:() => void
-    },
-    onAddNewTask: (e: { preventDefault: () => void; }, text: string) => void,
-    onEditModeTask: (id: number) => void,
-    onDelTaskItem: (taskId: number) => void,
-    onCheckBoxOnChange: (id:number) => void
-    onUpdateTaskText: (id:number, val:string) => void,
+  searchTask: any[],
+  searchText: {
+    val: string,
+    onChange: () => void
+  },
+  onAddNewTask: (e: { preventDefault: () => void; }, text: string) => void,
+  onEditModeTask: (id: number) => void,
+  onDelTaskItem: (taskId: number) => void,
+  onCheckBoxOnChange: (id: number) => void
+  onUpdateTaskText: (id: number, val: string) => void,
 
 }
+
 const Tasks: FC<TasksProps> = ({
   onAddNewTask,
   searchTask,
@@ -25,11 +27,11 @@ const Tasks: FC<TasksProps> = ({
   onEditModeTask,
   onDelTaskItem,
   onCheckBoxOnChange,
-  onUpdateTaskText
+  onUpdateTaskText,
 }) => (
   <div className="task__inner">
 
-    <Search searchText={searchText}/>
+    <Search searchText={searchText} />
 
     <h2 className="task__title">Task List</h2>
 
@@ -43,8 +45,8 @@ const Tasks: FC<TasksProps> = ({
       onDelTaskItem={onDelTaskItem}
       onCheckBoxOnChange={onCheckBoxOnChange}
       onUpdateTaskText={onUpdateTaskText}
-      onAddNewTask={onAddNewTask}/>
-
+      onAddNewTask={onAddNewTask}
+    />
   </div>
 );
 

@@ -10,17 +10,17 @@ export enum TodoActionTypes {
   CHECKBOX_ON_CHANGE = 'CHECKBOX_ON_CHANGE',
 }
 
-interface addNewTaskAction {
+interface AddNewTaskAction {
   type: TodoActionTypes.ADD_NEW_TASK,
   payload: string
 }
 
-interface editModeTaskAction {
+interface EditModeTaskAction {
   type: TodoActionTypes.EDIT_MODE_TASK,
   payload: number
 }
 
-interface updateTaskTextAction {
+interface UpdateTaskTextAction {
   type: TodoActionTypes.UPDATE_TASK_TEXT,
   payload: {
     id: number
@@ -28,19 +28,19 @@ interface updateTaskTextAction {
   }
 }
 
-interface delTaskItemAction {
+interface DelTaskItemAction {
   type: TodoActionTypes.DEL_TASK_ITEM,
   payload: number
 }
 
-interface checkBoxOnChangeAction {
+interface CheckBoxOnChangeAction {
   type: TodoActionTypes.CHECKBOX_ON_CHANGE,
   payload: number
 }
 
 export type TodoAction =
-  addNewTaskAction
-  | editModeTaskAction
-  | updateTaskTextAction
-  | delTaskItemAction
-  | checkBoxOnChangeAction
+  AddNewTaskAction
+  | EditModeTaskAction
+  | UpdateTaskTextAction
+  | DelTaskItemAction
+  | CheckBoxOnChangeAction;

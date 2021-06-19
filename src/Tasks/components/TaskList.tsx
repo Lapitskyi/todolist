@@ -1,9 +1,10 @@
-import React, {FC} from 'react';
-import svgSprite from "../../assets/images/svgSprite.svg";
+import React, { FC } from 'react';
+import svgSprite from '../../assets/images/svgSprite.svg';
 
 import '../scss/TaskList.scss';
 import TaskItem from './TaskItem';
-import Button from "../../component/Button/Button";
+import Button from '../../component/Button/Button';
+
 interface TaskListProps {
   searchTask: any[],
   onAddNewTask: (e: { preventDefault: () => void; }, text: string) => void,
@@ -17,9 +18,8 @@ const TaskList: FC<TaskListProps> = ({
   onEditModeTask,
   onDelTaskItem,
   onCheckBoxOnChange,
-  onUpdateTaskText
+  onUpdateTaskText,
 }) => {
-
   return (
     <ul className="tasks__list">
       {searchTask.length === 0
@@ -39,28 +39,28 @@ const TaskList: FC<TaskListProps> = ({
           />
 
           <div className="tasks__btn-box">
-           {!task.editMode && !task.done
+            {!task.editMode && !task.done
             && (
-             <Button
-                 id={task.id}
-                 onClickButton={onEditModeTask}
-                 svgIcon={`${svgSprite}#edit`}
-             />
+            <Button
+              id={task.id}
+              onClickButton={onEditModeTask}
+              svgIcon={`${svgSprite}#edit`}
+            />
             )}
             {task.editMode
             && (
             <Button
-                id={task.id}
-                onClickButton={onEditModeTask}
-                svgIcon={`${svgSprite}#update`}
+              id={task.id}
+              onClickButton={onEditModeTask}
+              svgIcon={`${svgSprite}#update`}
             />
             )}
 
-           <Button
-               id={task.id}
-               onClickButton={onDelTaskItem}
-               svgIcon={`${svgSprite}#remove`}
-           />
+            <Button
+              id={task.id}
+              onClickButton={onDelTaskItem}
+              svgIcon={`${svgSprite}#remove`}
+            />
           </div>
         </li>
       ))}

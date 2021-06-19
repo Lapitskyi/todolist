@@ -1,7 +1,7 @@
 import { TodoAction, TodoActionTypes, TodoState } from './types';
 
 const initialState: TodoState = {
-  tasks: []
+  tasks: [],
 };
 
 const reducer = (state = initialState, action: TodoAction): TodoState => {
@@ -10,7 +10,7 @@ const reducer = (state = initialState, action: TodoAction): TodoState => {
       return {
         ...state,
         tasks: [...state.tasks, {
-          id: Date.now(), text: action.payload, done: false, editMode: false
+          id: Date.now(), text: action.payload, done: false, editMode: false,
         }],
       };
 
@@ -22,7 +22,7 @@ const reducer = (state = initialState, action: TodoAction): TodoState => {
             return { ...task, editMode: !task.editMode };
           }
           return task;
-        })
+        }),
       };
 
     case TodoActionTypes.UPDATE_TASK_TEXT: {
@@ -34,14 +34,14 @@ const reducer = (state = initialState, action: TodoAction): TodoState => {
             return { ...task, text: textTask };
           }
           return task;
-        })
+        }),
       };
     }
 
     case TodoActionTypes.DEL_TASK_ITEM:
       return {
         ...state,
-        tasks: [...state.tasks.filter((task) => task.id !== action.payload)]
+        tasks: [...state.tasks.filter((task) => task.id !== action.payload)],
       };
 
     case TodoActionTypes.CHECKBOX_ON_CHANGE:
@@ -52,7 +52,7 @@ const reducer = (state = initialState, action: TodoAction): TodoState => {
             return { ...task, done: !task.done };
           }
           return task;
-        })
+        }),
       };
 
     default:

@@ -1,36 +1,36 @@
-import React, {FC, useMemo} from 'react';
+import React, { FC, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addNewTask,
   delTaskItem,
   checkBoxOnChange,
-  updateTaskText, editModeTask
+  updateTaskText, editModeTask,
 } from '../redux/action';
 
 import Tasks from './Tasks';
 import getTodoList from '../redux/selector';
-import useInput from "../useHook/useInput";
+import useInput from '../useHook/useInput';
 
 const TasksContainer: FC = () => {
-
-  const tasks = useSelector(({ todoList}: any ) => getTodoList(todoList));
+  const tasks = useSelector(({ todoList }: any) => getTodoList(todoList));
   const dispatch = useDispatch();
 
   const searchText = useInput('');
 
   const searchTask = useMemo(() => {
-    const activeTask = tasks.filter(task => !task.done);
-    const doneTask = tasks.filter(task => task.done);
+    const activeTask = tasks.filter((task) => !task.done);
+    const doneTask = tasks.filter((task) => task.done);
 
-    const find = [...activeTask, ...doneTask].filter((task)=>{
+    // eslint-disable-next-line array-callback-return,consistent-return
+    const find = [...activeTask, ...doneTask].filter((task) => {
       if (task.text.toLowerCase().search(searchText.val.toLowerCase()) !== -1) {
-        return {...task.text}
-      } else if (searchText.val == '') {
-        return task
+        return { ...task.text };
+      } if (searchText.val === '') {
+        return task;
       }
-    })
-    return find
-  },[tasks, searchText.val]);
+    });
+    return find;
+  }, [tasks, searchText.val]);
 
   const onAddNewTask = (e: { preventDefault: () => void; }, text: string) => {
     e.preventDefault();

@@ -1,21 +1,46 @@
 {
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jest/globals": true
+  },
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 2018,
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
   "plugins": [
     "@typescript-eslint",
-    "react-hooks"
+    "react-hooks",
+    "jest"
   ],
   "extends": [
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "airbnb-typescript"
   ],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "react/jsx-filename-extension": 0,
+    "arrow-body-style": 0,
+    "react/prefer-stateless-function": 0,
+    "no-trailing-spaces": 0,
+    "comma-dangle": 0,
+    "radix": 0,
+    "max-len": [
+      2,
+      {
+        "code": 120,
+        "ignorePattern": "^import"
+      }
+    ],
+    "jsx-a11y/label-has-for": 0,
+    "class-methods-use-this": 0,
+    "jsx-a11y/no-autofocus": 0
   },
   "settings": {
     "react": {
