@@ -8,7 +8,7 @@ interface TaskFormProps {
 }
 
 const Forms: FC<TaskFormProps> = ({ onAddNewTask }) => {
-  const { val, onChange } = useInput('');
+  const { val, onChange, reset } = useInput('');
 
   return (
     <form className="form">
@@ -25,7 +25,10 @@ const Forms: FC<TaskFormProps> = ({ onAddNewTask }) => {
       <button
         className="form__btn btn"
         type="submit"
-        onClick={(e) => onAddNewTask(e, val)}
+        onClick={(e) => {
+          onAddNewTask(e, val);
+          reset();
+        }}
       >
         add
       </button>
