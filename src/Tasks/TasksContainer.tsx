@@ -10,9 +10,10 @@ import {
 import Tasks from './Tasks';
 import getTodoList from '../redux/selector';
 import useInput from '../useHook/useInput';
+import { AppStateType } from '../redux/store';
 
 const TasksContainer: FC = () => {
-  const tasks = useSelector(({ todoList }: any) => getTodoList(todoList));
+  const tasks = useSelector(({ todoList }: AppStateType) => getTodoList(todoList));
   const dispatch = useDispatch();
 
   const searchText = useInput('');

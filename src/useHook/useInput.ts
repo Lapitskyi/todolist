@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
-const useInput = (initialVal) => {
+const useInput = (initialVal: string) => {
   const [val, setVal] = useState(initialVal);
 
-  const onChange = (e) => {
+  const onChange = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setVal(e.target.value);
   };
 

@@ -1,12 +1,13 @@
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 import svgSprite from '../../assets/images/svgSprite.svg';
 import './scss/Search.scss';
 
 interface SearchProps {
   searchText: {
     val: string,
-    onChange: () => void
-  },
+    onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    reset: () => void
+  }
 }
 
 const Search: FC<SearchProps> = ({ searchText }) => (

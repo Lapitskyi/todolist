@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { ChangeEvent, FC } from 'react';
 
 import TaskList from './components/TaskList';
 import Forms from '../component/Forms/Forms';
@@ -10,7 +10,8 @@ interface TasksProps {
   searchTask: any[],
   searchText: {
     val: string,
-    onChange: () => void
+    onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
+    reset: () => void
   },
   onAddNewTask: (e: { preventDefault: () => void; }, text: string) => void,
   onEditModeTask: (id: number) => void,
